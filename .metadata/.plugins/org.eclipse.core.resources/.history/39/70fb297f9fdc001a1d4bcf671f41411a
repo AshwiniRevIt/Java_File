@@ -1,0 +1,27 @@
+package newPOM.NewPOM;
+
+import java.io.File;
+import java.io.FileInputStream;
+//import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ConfigReader {
+	
+	public String configRead(String configPath, String key) throws IOException {
+		File file = new File(configPath);
+		FileInputStream reader = new FileInputStream(file);
+		Properties props = new Properties();
+		props.load(reader);
+		props.get(key);
+		return key;
+	}
+	
+	public static void main(String[] args) throws IOException {
+		ConfigReader cf =  new ConfigReader();
+		String as = cf.configRead("C//Users//91948//eclipse-workspace//NewPOM//src//test//resources//config//config.properties", "browserName");
+		System.out.println(as);
+		
+	}
+
+}
